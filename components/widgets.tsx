@@ -9,6 +9,8 @@ type StatCardProps = {
   icon: React.ReactNode;
   className: string;
   children: React.ReactNode;
+  iconBgColor?: string;
+  iconColor?: string;
 };
 
 type TagProps = {
@@ -31,13 +33,18 @@ export const StatCard = ({
   icon,
   className,
   children,
+  iconBgColor = "rgba(67,97,238,0.1)",
+  iconColor = "var(--primary)"
 }: StatCardProps) => {
   return (
     <div
       className={`group relative bg-white rounded-2xl p-6 pt-5 border border-white/80 shadow-md transition-all hover:-translate-y-2 hover:shadow-xl ${className}`}
     >
       <div className="flex items-center gap-4 mb-5">
-        <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[rgba(67,97,238,0.1)] text-[var(--primary)] transition-transform duration-300 group-hover:scale-110 shadow-sm">
+      <div 
+        className={`w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 border-0`}
+        style={{ backgroundColor: iconBgColor, color: iconColor }}
+      >
           {icon}
         </div>
         <h3 className="text-[17px] font-semibold text-gray-800">{title}</h3>
@@ -85,7 +92,7 @@ export const UserItem = ({
   return (
     <div className="flex flex-col items-center gap-2 cursor-pointer transition-all hover:-translate-y-2">
       <div
-        className={`w-[70px] h-[70px] rounded-full flex items-center justify-center border-3 border-white shadow transition-all relative overflow-hidden ${avatarClassName}`}
+        className={`w-[70px] h-[70px] rounded-full flex items-center justify-center border-3 border-white transition-all relative overflow-hidden ${avatarClassName}`}
       >
         <Image src={avatar || "/default-avatar.png"} alt={name} className="w-full h-full object-cover" layout="fill" objectFit="cover" />
         <Image src={avatar || "/default-avatar.png"} alt={name} layout="fill" objectFit="cover" />
@@ -107,11 +114,9 @@ export const BrowserStats = () => {
   return (
     <StatCard
       title="Navegadores"
-      icon={
-        <div className="w-11 h-11 rounded-[12px] bg-[rgba(247, 17, 227, 0.1)] text-[#4361ee] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow">
-          <Globe size={22} />
-        </div>
-      }
+      icon={<Globe size={22} />}
+      iconBgColor="rgba(10, 132, 189, 0.1)"
+      iconColor="#4361ee"
       className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[5px]"
     >
       <div className="flex flex-wrap gap-3">
@@ -136,12 +141,10 @@ export const OperatingSystemStats = () => {
   return (
     <StatCard
       title="Sistemas Operativos"
-      icon={
-        <div className="w-11 h-11 rounded-[12px] bg-[rgba(0,180,216,0.1)] text-[#00b4d8] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow">
-          <Laptop size={22} />
-        </div>
-      }
-      className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[5px] "
+      icon={<Laptop size={22} />}
+      iconBgColor="rgba(0,180,216,0.1)"
+      iconColor="#00b4d8"
+      className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[5px]"
     >
       <div className="flex flex-wrap gap-3">
         <Tag
@@ -173,11 +176,9 @@ export const TeachersStats = () => {
   return (
     <StatCard
       title="Profesores"
-      icon={
-        <div className="w-11 h-11 rounded-[12px] bg-[rgba(114,9,183,0.1)] text-[#7209b7] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow">
-          <User size={22} />
-        </div>
-      }
+      icon={<User size={22} />}
+      iconBgColor="rgba(114,9,183,0.1)"
+      iconColor="#7209b7"
       className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[5px]"
     >
       <StatCount
@@ -192,11 +193,9 @@ export const StudentsStats = () => {
   return (
     <StatCard
       title="Alumnos Inscritos"
-      icon={
-        <div className="w-11 h-11 rounded-[12px] bg-[rgba(6,214,160,0.1)] text-[#06d6a0] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow">
-          <Bell size={22} />
-        </div>
-      }
+      icon={<Bell size={22} />}
+      iconBgColor="rgba(6,214,160,0.1)"
+      iconColor="#06d6a0"
       className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[5px]"
     >
       <StatCount
@@ -206,6 +205,7 @@ export const StudentsStats = () => {
     </StatCard>
   );
 };
+
 export const StatsGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
