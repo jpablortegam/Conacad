@@ -137,7 +137,7 @@ export const OperatingSystemStats = () => {
         <Tag
           label="MACOS"
           percent="13%"
-          className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-purple-300"
+          className="bg-purple-50 dark:bg-purple-900 text-purple-700 dark:text-purple-300"
         />
         <Tag
           label="LINUX"
