@@ -69,7 +69,7 @@ export default function Navbar({
                 variant="outline"
                 size="sm"
                 className="text-sm font-medium"
-                onClick={() => handleNavigation("/signin")}
+                onClick={() => handleNavigation("/Sign-In")}
               >
                 Sign In
               </Button>
