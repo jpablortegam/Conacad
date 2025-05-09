@@ -1,8 +1,8 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
 
 @layer base {
   :root {
@@ -49,8 +49,185 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
+}
 
-   /* Zinc Theme Variables */
+/* Estilos para StatCard */
+@layer components {
+  .stat-card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl p-6 pt-5 border border-gray-200 dark:border-gray-700 shadow-md transition-all;
+  }
+  
+  .stat-card:hover {
+    @apply -translate-y-2 shadow-lg;
+  }
+  
+  .stat-card-icon {
+    @apply w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300;
+  }
+  
+  .stat-card-icon-group:hover .stat-card-icon {
+    @apply scale-105;
+  }
+  
+  .stat-card-title {
+    @apply text-[17px] font-semibold text-gray-800 dark:text-white;
+  }
+  
+  .stat-card-header {
+    @apply flex items-center gap-4 mb-5;
+  }
+  
+  /* Theme color variants for icons */
+  .icon-bg-zinc {
+    @apply bg-zinc-100 dark:bg-zinc-900;
+  }
+  
+  .icon-color-zinc {
+    @apply text-zinc-500 dark:text-zinc-300;
+  }
+  
+  .hover-shadow-zinc {
+    @apply hover:shadow-zinc-100 dark:hover:shadow-zinc-900;
+  }
+  
+  .gradient-zinc {
+    @apply from-zinc-600 to-zinc-800 dark:from-zinc-500 dark:to-zinc-700;
+  }
+  
+  .icon-bg-rose {
+    @apply bg-rose-100 dark:bg-rose-900;
+  }
+  
+  .icon-color-rose {
+    @apply text-rose-500 dark:text-rose-300;
+  }
+  
+  .hover-shadow-rose {
+    @apply hover:shadow-rose-100 dark:hover:shadow-rose-900;
+  }
+  
+  .gradient-rose {
+    @apply from-rose-600 to-rose-800 dark:from-rose-500 dark:to-rose-700;
+  }
+  
+  .icon-bg-blue {
+    @apply bg-blue-100 dark:bg-blue-900;
+  }
+  
+  .icon-color-blue {
+    @apply text-blue-500 dark:text-blue-300;
+  }
+  
+  .hover-shadow-blue {
+    @apply hover:shadow-blue-100 dark:hover:shadow-blue-900;
+  }
+  
+  .gradient-blue {
+    @apply from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700;
+  }
+  
+  .icon-bg-green {
+    @apply bg-green-100 dark:bg-green-900;
+  }
+  
+  .icon-color-green {
+    @apply text-green-500 dark:text-green-300;
+  }
+  
+  .hover-shadow-green {
+    @apply hover:shadow-green-100 dark:hover:shadow-green-900;
+  }
+  
+  .gradient-green {
+    @apply from-green-600 to-green-800 dark:from-green-500 dark:to-green-700;
+  }
+  
+  .icon-bg-orange {
+    @apply bg-orange-100 dark:bg-orange-900;
+  }
+  
+  .icon-color-orange {
+    @apply text-orange-500 dark:text-orange-300;
+  }
+  
+  .hover-shadow-orange {
+    @apply hover:shadow-orange-100 dark:hover:shadow-orange-900;
+  }
+  
+  .gradient-orange {
+    @apply from-orange-600 to-orange-800 dark:from-orange-500 dark:to-orange-700;
+  }
+  
+  .icon-bg-purple {
+    @apply bg-purple-100 dark:bg-purple-900;
+  }
+  
+  .icon-color-purple {
+    @apply text-purple-500 dark:text-purple-300;
+  }
+  
+  .hover-shadow-purple {
+    @apply hover:shadow-purple-100 dark:hover:shadow-purple-900;
+  }
+  
+  .gradient-purple {
+    @apply from-purple-600 to-purple-800 dark:from-purple-500 dark:to-purple-700;
+  }
+
+  /* Tag component styles */
+  .stat-tag {
+    @apply px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition-all;
+  }
+  
+  .stat-tag:hover {
+    @apply -translate-y-1 shadow;
+  }
+  
+  /* Browser tag variants */
+  .tag-chrome {
+    @apply bg-purple-50 dark:bg-purple-900 text-purple-700 dark:text-purple-300;
+  }
+  
+  .tag-firefox {
+    @apply bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300;
+  }
+  
+  .tag-edge {
+    @apply bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300;
+  }
+  
+  .tag-opera {
+    @apply bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300;
+  }
+  
+  /* OS tag variants */
+  .tag-windows {
+    @apply bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300;
+  }
+  
+  .tag-macos {
+    @apply bg-purple-50 dark:bg-purple-900 text-purple-700 dark:text-purple-300;
+  }
+  
+  .tag-linux {
+    @apply bg-amber-50 dark:bg-amber-900 text-amber-700 dark:text-amber-300;
+  }
+  
+  .tag-android {
+    @apply bg-cyan-50 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-300;
+  }
+  
+  /* StatCount component styles */
+  .stat-count {
+    @apply flex flex-col items-center justify-center py-4 relative;
+  }
+  
+  .stat-count-value {
+    @apply text-5xl font-bold transition-all relative bg-gradient-to-r bg-clip-text text-transparent;
+  }
+}
+
+   /* Zinc Theme Variables
    [data-theme="Zinc"] {
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
@@ -60,7 +237,7 @@
     --primary-foreground: 240 5.9% 10%;
   }
 
-  /* Rose Theme Variables */
+  /* Rose Theme Variables 
   [data-theme="Rose"] {
     --primary: 346.8 77.2% 49.8%;
     --primary-foreground: 355.7 100% 97.3%;
@@ -70,7 +247,7 @@
     --primary-foreground: 355.7 100% 97.3%;
   }
 
-  /* Blue Theme Variables */
+  /* Blue Theme Variables 
   [data-theme="Blue"] {
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 210 40% 98%;
@@ -80,7 +257,7 @@
     --primary-foreground: 210 40% 98%;
   }
 
-  /* Green Theme Variables */
+  /* Green Theme Variables 
   [data-theme="Green"] {
     --primary: 142.1 76.2% 36.3%;
     --primary-foreground: 355.7 100% 97.3%;
@@ -90,7 +267,7 @@
     --primary-foreground: 355.7 100% 97.3%;
   }
 
-  /* Orange Theme Variables */
+  /* Orange Theme Variables 
   [data-theme="Orange"] {
     --primary: 24.6 95% 53.1%;
     --primary-foreground: 60 9.1% 97.8%;
@@ -99,4 +276,4 @@
     --primary: 24.6 95% 53.1%;
     --primary-foreground: 60 9.1% 97.8%;
   }
-}
+}*/
