@@ -80,10 +80,11 @@ export function ThemeColorToggle() {
       onValueChange={(value) => setThemeColor(value)}
       defaultValue={themeColor}
     >
-      <SelectTrigger className="w-[180px] ring-offset-transparent focus:ring-transparent">
+      <SelectTrigger 
+        className="w-[180px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm ring-offset-transparent focus:ring-transparent">
         <SelectValue placeholder="Select Color" />
       </SelectTrigger>
-      <SelectContent className="border-muted">
+      <SelectContent className="border-muted bg-white dark:bg-gray-800">
         {createSelectItems()}
       </SelectContent>
     </Select>
