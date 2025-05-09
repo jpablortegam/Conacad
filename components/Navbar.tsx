@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import { Home, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-
 export default function Navbar({
   className,
   ...props
@@ -41,7 +40,7 @@ export default function Navbar({
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
         isScrolled
           ? "bg-background/95 backdrop-blur-sm shadow-md border-b border-border/40"
           : "bg-background border-b border-border",
@@ -49,7 +48,8 @@ export default function Navbar({
       )}
       {...props}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Barra principal */}
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div
@@ -63,8 +63,8 @@ export default function Navbar({
           </div>
 
           {/* Botones y Modo */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="hidden md:flex gap-2 md:gap-4">
               <Button
                 variant="outline"
                 size="sm"
@@ -87,6 +87,7 @@ export default function Navbar({
               size="icon"
               onClick={toggleMenu}
               className="md:hidden"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
@@ -96,27 +97,25 @@ export default function Navbar({
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-16 left-0 right-0 bg-background border-t border-border transition-all duration-300 ${
-          isMenuOpen ? "max-h-40" : "max-h-0"
+        className={`w-full bg-background border-t border-border transition-all duration-300 ${
+          isMenuOpen ? "max-h-64" : "max-h-0"
         } overflow-hidden md:hidden`}
       >
-        <div className="flex flex-col items-center gap-2 py-4">
+          <div className="w-full h-px bg-border my-1"></div>
           <Button
             variant="outline"
-            className="w-10/12 text-sm font-medium"
+            className="w-full text-sm font-medium"
             onClick={() => handleNavigation("/signin")}
           >
             Sign In
           </Button>
           <Button
-            className="w-10/12 text-sm font-medium"
+            className="w-full text-sm font-medium"
             onClick={() => handleNavigation("/signup")}
           >
             Sign Up
           </Button>
-
         </div>
-      </div>
     </nav>
   );
 }

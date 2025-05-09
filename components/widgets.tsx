@@ -33,9 +33,12 @@ export const StatCard = ({
     <Card className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-5 border border-gray-200 dark:border-gray-700 shadow-md transition-all hover:-translate-y-2 hover:shadow-lg hover:shadow-sky-100 dark:hover:shadow-gray-900">
       <div className="flex items-center gap-4 mb-5">
         <div
-          className={`w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${iconBgColor} ${iconColor}`}
+          className={`w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${iconBgColor} ${iconColor}`}
         >
-          {icon}
+          {/* Aplicamos una transformación adicional al propio icono */}
+          <div className="transition-transform duration-300 group-hover:scale-110">
+            {icon}
+          </div>
         </div>
         <h3 className="text-[17px] font-semibold text-gray-800 dark:text-white">
           {title}
