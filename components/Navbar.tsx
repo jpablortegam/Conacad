@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -12,21 +12,7 @@ export default function Navbar({
   ...props
 }: React.ComponentProps<"nav">) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,41 +26,38 @@ export default function Navbar({
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-        isScrolled
-          ? "bg-background/95 backdrop-blur-sm shadow-md border-b border-border/40"
-          : "bg-background border-b border-border",
+        "w-full z-50 bg-background border-b border-border",
         className
       )}
       {...props}
     >
       {/* Barra principal */}
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20 w-full">
           {/* Logo */}
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer"
             onClick={() => handleNavigation("/")}
           >
-            <div className="bg-primary/10 p-2 rounded-md hover:bg-primary/20 transition-colors">
-              <Home className="w-5 h-5 text-primary" />
+            <div className="bg-primary/10 p-2.5 rounded-md hover:bg-primary/20 transition-colors">
+              <Home className="w-6 h-6 text-primary" />
             </div>
-            <span className="font-bold text-xl">Launch UI</span>
+            <span className="font-bold text-2xl">Launch UI</span>
           </div>
 
           {/* Botones y Modo */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <div className="hidden md:flex gap-2 md:gap-4">
+          <div className="flex items-center gap-3 md:gap-5">
+            <div className="hidden md:flex gap-3 md:gap-5">
               <Button
                 variant="outline"
-                size="sm"
+                size="default"
                 className="text-sm font-medium"
                 onClick={() => handleNavigation("/Sign-In")}
               >
                 Sign In
               </Button>
               <Button
-                size="sm"
+                size="default"
                 className="text-sm font-medium"
                 onClick={() => handleNavigation("/signup")}
               >
@@ -89,7 +72,7 @@ export default function Navbar({
               className="md:hidden"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
         </div>
@@ -101,6 +84,7 @@ export default function Navbar({
           isMenuOpen ? "max-h-64" : "max-h-0"
         } overflow-hidden md:hidden`}
       >
+        <div className="container mx-auto p-4 space-y-2 bg-background">
           <div className="w-full h-px bg-border my-1"></div>
           <Button
             variant="outline"
@@ -116,6 +100,7 @@ export default function Navbar({
             Sign Up
           </Button>
         </div>
+      </div>
     </nav>
   );
 }
