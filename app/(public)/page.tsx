@@ -1,14 +1,14 @@
 import { StatsGrid } from '@/components/widgets';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/NavBars/Navbar';
 //import {ThemeColorToggle} from "@/components/theme-color-toggle";
-
-
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main >
       <Navbar />
-      <StatsGrid />
+      <div className="container mx-auto pt-24 px-4">
+        <StatsGrid />
+      </div>
     </main>
   );
 }

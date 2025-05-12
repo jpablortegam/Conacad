@@ -116,7 +116,7 @@ export function LoginForm({
 
           <div className="relative hidden md:block h-full bg-secondary-light dark:bg-secondary-dark">
             <img
-              src="/public/image.png"
+              src="./public/image.png"
               alt="Imagen decorativa"
               className="h-full w-full object-cover"
             />
