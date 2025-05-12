@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Home, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+
 export default function Navbar({
   className,
   ...props
