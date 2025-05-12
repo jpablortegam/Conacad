@@ -30,7 +30,7 @@ export const StatCard = ({
   iconColor = "text-primary",
 }: StatCardProps) => {
   return (
-    <Card className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-5 border border-gray-200 dark:border-gray-700 shadow-md transition-all hover:-translate-y-2 hover:shadow-lg hover:shadow-sky-100 dark:hover:shadow-gray-900">
+    <Card className="group relative bg-card dark:bg-card rounded-2xl p-6 pt-5 border border-border dark:border-border shadow-md transition-all hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10 dark:hover:shadow-primary/5">
       <div className="flex items-center gap-4 mb-5">
         <div
           className={`w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${iconBgColor} ${iconColor}`}
@@ -40,7 +40,7 @@ export const StatCard = ({
             {icon}
           </div>
         </div>
-        <h3 className="text-[17px] font-semibold text-gray-800 dark:text-white">
+        <h3 className="text-lg font-semibold text-foreground dark:text-foreground">
           {title}
         </h3>
       </div>
@@ -98,22 +98,22 @@ export const BrowserStats = () => {
         <Tag
           label="CHROME"
           percent="73%"
-          className="bg-purple-50 dark:bg-purple-900 text-purple-700 dark:text-purple-300"
+          className="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
         />
         <Tag
           label="FIREFOX"
           percent="10%"
-          className="bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300"
+          className="bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300"
         />
         <Tag
           label="EDGE"
           percent="11%"
-          className="bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300"
+          className="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
         />
         <Tag
           label="OPERA"
           percent="3%"
-          className="bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300"
+          className="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
         />
       </div>
     </StatCard>
@@ -135,22 +135,22 @@ export const OperatingSystemStats = () => {
         <Tag
           label="WINDOWS"
           percent="53%"
-          className="bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300"
+          className="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300"
         />
         <Tag
           label="MACOS"
           percent="13%"
-          className="bg-purple-50 dark:bg-purple-900 text-purple-700 dark:text-purple-300"
+          className="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
         />
         <Tag
           label="LINUX"
           percent="5%"
-          className="bg-amber-50 dark:bg-amber-900 text-amber-700 dark:text-amber-300"
+          className="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
         />
         <Tag
           label="ANDROID"
           percent="27%"
-          className="bg-cyan-50 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-300"
+          className="bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-300"
         />
       </div>
     </StatCard>

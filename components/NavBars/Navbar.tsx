@@ -43,7 +43,7 @@ export default function Navbar({
             <div className="bg-primary/10 p-2.5 rounded-md hover:bg-primary/20 transition-colors">
               <Home className="w-6 h-6 text-primary" />
             </div>
-            <span className="font-bold text-2xl">Launch UI</span>
+            <span>Launch UI</span>
           </div>
 
           {/* Botones y Modo */}

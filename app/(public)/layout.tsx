@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import { ThemeColorProvider } from "@/components/theme-color-toggle";
-import { geistSans, geistMono } from "@/utils/fonts";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -16,9 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
