@@ -49,15 +49,16 @@ export default function Navbar({
           <div className="flex items-center gap-3 md:gap-5">
             <div className="hidden md:flex gap-3 md:gap-5">
               <Button
-                variant="outline"
+                variant="default"
                 size="default"
-                className="text-sm font-medium"
+                className="text-sm font-medium "
                 onClick={() => handleNavigation("/Sign-In")}
               >
                 Sign In
               </Button>
               <Button
                 size="default"
+                variant={"link"}
                 className="text-sm font-medium"
                 onClick={() => handleNavigation("/signup")}
               >
