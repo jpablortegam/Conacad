@@ -99,7 +99,7 @@ export default function Navbar({
         } overflow-hidden md:hidden`}
       >
         <div className="container mx-auto p-4 space-y-2 bg-background">
-          <div className="w-full h-px bg-border my-1"></div>
+          <div className="w-full h-px"></div>
           <Button
             variant="outline"
             className="w-full text-sm font-medium"
