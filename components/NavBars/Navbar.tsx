@@ -91,7 +91,7 @@ export default function Navbar({
           <Button
             variant="outline"
             className="w-full text-sm font-medium"
-            onClick={() => handleNavigation("/signin")}
+            onClick={() => handleNavigation("/Sign-In")}
           >
             Sign In
           </Button>

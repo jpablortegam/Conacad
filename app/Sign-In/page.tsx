@@ -2,6 +2,6 @@ import {LoginForm} from "@/components/login-form";
 
 export default function Home() {
   return (
-      <LoginForm className="bg-amber-50"/>  
+      <LoginForm/>  
 );
 }
