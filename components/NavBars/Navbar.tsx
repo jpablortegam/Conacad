@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Home, Menu, X } from "lucide-react";
-import { useRouter } from "next/navigation";
-
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar({
   className,
@@ -14,15 +13,28 @@ export default function Navbar({
 }: React.ComponentProps<"nav">) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleNavigation = (path: string) => {
-    router.push(path);
+    // Si ya estamos en la misma ruta, no hacemos nada
+    if (pathname === path) {
+      // Opcionalmente, puedes hacer scroll al inicio de la página
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push(path);
+    }
+    
     setIsMenuOpen(false);
   };
+
+  // Cerrar el menú cuando cambia la ruta
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <nav
@@ -91,7 +103,7 @@ export default function Navbar({
           <Button
             variant="outline"
             className="w-full text-sm font-medium"
-            onClick={() => handleNavigation("/signin")}
+            onClick={() => handleNavigation("/Sign-In")}
           >
             Sign In
           </Button>

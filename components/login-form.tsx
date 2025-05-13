@@ -1,10 +1,10 @@
-// components/login-form.tsx
 'use client';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import Image from 'next/image';
 
 export function LoginForm({
   className,
@@ -13,25 +13,21 @@ export function LoginForm({
   return (
     <div
       className={cn(
-        'flex flex-col gap-6 min-h-screen w-full  bg-background text-foreground p-4 md:p-8 items-center justify-center',
+        'flex flex-col gap-6 min-h-screen w-full p-4 md:p-8 items-center justify-center',
         className
       )}
       {...props}
     >
-      <div className="flex overflow-hidden max-w-4xl mx-auto w-full shadow-lg  rounded-lg">
+      <div className="flex overflow-hidden max-w-4xl mx-auto w-full shadow-lg rounded-lg">
         <div className="grid w-full p-0 md:grid-cols-2">
-          {/* Panel de formulario con fondo oscuro en light mode y claro en dark mode */}
+          {/* Panel de formulario - Adaptado para funcionar con variables CSS */}
           <form
-            className={cn(
-              'p-6 md:p-8 h-full',
-              'bg-gray-900 text-gray-100',           // light mode: fondo oscuro, texto claro
-              'dark:bg-gray-100 dark:text-gray-900'  // dark mode: fondo claro, texto oscuro
-            )}
+            className="p-6 md:p-8 h-full bg-card text-card-foreground"
           >
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
-                <p className="text-sm text-secondary">
+                <p className="text-sm text-muted-foreground">
                   Login to your Acme Inc account
                 </p>
               </div>
@@ -43,7 +39,6 @@ export function LoginForm({
                   type="email"
                   placeholder="m@example.com"
                   required
-                  className="bg-input dark:bg-input-dark"
                 />
               </div>
 
@@ -51,8 +46,8 @@ export function LoginForm({
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
                   <a
-                    href="#"
-                    className="ml-auto text-sm underline-offset-2 hover:underline text-secondary"
+                    href="/forgot-password"
+                    className="ml-auto text-sm underline-offset-2 hover:underline font-medium hover:text-accent-foreground transition-colors inline-block py-1 px-2 -mx-2"
                   >
                     Forgot your password?
                   </a>
@@ -61,27 +56,28 @@ export function LoginForm({
                   id="password"
                   type="password"
                   required
-                  className="bg-input dark:bg-input-dark"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-button bg-button-bg text-button-text hover:bg-button-hover"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Login
               </Button>
 
-              <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-secondary">
-                <span className="relative z-10 bg-background px-2 text-secondary">
+              <div className="relative text-center text-sm text-muted-foreground after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-input">
+                <span className="relative z-10 px-2 bg-card">
                   Or continue with
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <Button
+                  type="button"
+                  onClick={() => window.location.href = '/auth/apple'}
                   variant="outline"
-                  className="w-full border-secondary bg-background hover:bg-secondary-hover text-foreground"
+                  className="w-full border-input hover:bg-accent hover:text-accent-foreground"
                 >
                   {/* SVG Apple */}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5">
@@ -92,8 +88,10 @@ export function LoginForm({
                   </svg>
                 </Button>
                 <Button
+                  type="button"
+                  onClick={() => window.location.href = '/auth/google'}
                   variant="outline"
-                  className="w-full border-secondary bg-background hover:bg-secondary-hover text-foreground"
+                  className="w-full border-input hover:bg-accent hover:text-accent-foreground"
                 >
                   {/* SVG Google */}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5">
@@ -105,29 +103,36 @@ export function LoginForm({
                 </Button>
               </div>
 
-              <div className="text-center text-sm text-secondary">
-                Don’t have an account?{' '}
-                <a href="#" className="underline hover:text-secondary-hover">
+              <div className="text-center text-sm">
+                Dont have an account?{' '}
+                <a 
+                  href="/signup" 
+                  className="underline font-medium hover:text-accent-foreground transition-colors inline-block py-1 px-2 -mx-2"
+                >
                   Sign up
                 </a>
               </div>
             </div>
           </form>
 
-          <div className="relative hidden md:block h-full bg-secondary-light dark:bg-secondary-dark">
-            <img
-              src="./public/image.png"
-              alt="Imagen decorativa"
-              className="h-full w-full object-cover"
-            />
+          <div className="relative hidden md:block h-full bg-secondary">
+            <div className="relative h-full w-full">
+              <Image
+                src="/image.png"
+                alt="Imagen decorativa"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="text-center text-xs text-secondary-light dark:text-secondary-dark max-w-4xl mx-auto w-full">
+      <div className="text-center text-xs max-w-4xl mx-auto w-full text-muted-foreground">
         By clicking continue, you agree to our{' '}
-        <a href="#" className="underline">Terms of Service</a> and{' '}
-        <a href="#" className="underline">Privacy Policy</a>.
+        <a href="/terms" className="underline font-medium hover:text-accent-foreground transition-colors inline-block py-1 px-2 -mx-2">Terms of Service</a> and{' '}
+        <a href="/privacy" className="underline font-medium hover:text-accent-foreground transition-colors inline-block py-1 px-2 -mx-2">Privacy Policy</a>.
       </div>
     </div>
   );

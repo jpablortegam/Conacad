@@ -1,7 +1,11 @@
-import {LoginForm} from "@/components/login-form";
+import { LoginForm } from "@/components/login-form";
+import NavbarLogin from "@/components/NavBars/NavbarLogin";
 
 export default function Home() {
   return (
-      <LoginForm className="bg-amber-50"/>  
-);
+    <>
+      <NavbarLogin />
+      <LoginForm />
+    </>
+  );
 }
