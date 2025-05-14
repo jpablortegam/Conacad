@@ -150,3 +150,16 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
+@keyframes conacad-shimmer {
+  0% {
+    background-position: -150% -150%;
+  }
+  100% {
+    background-position: 150% 150%;
+  }
+}
+
+.animate-conacad-shimmer {
+  background-size: 300% 300%;
+  animation: conacad-shimmer 4s ease-in-out infinite;
+}

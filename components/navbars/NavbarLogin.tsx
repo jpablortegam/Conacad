@@ -2,7 +2,7 @@
 
 
 import { ModeToggle } from "@/components/mode-toggle";
-
+import ConaCad from "@/components/ConaCad";
 import { cn } from "@/lib/utils";
 import { Home } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
@@ -43,7 +43,7 @@ export default function NavbarLogin({
             <div className="bg-primary/10 p-2.5 rounded-md hover:bg-primary/20 transition-colors">
               <Home className="w-6 h-6 text-primary" />
             </div>
-            <span>Launch UI</span>
+             <ConaCad />
           </div>
 
           {/* Botones y Modo */}
