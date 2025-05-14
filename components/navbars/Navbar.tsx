@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Home, Menu, X } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import ConaCad from "@/components/ConaCad";
 
 export default function Navbar({
   className,
@@ -55,7 +56,7 @@ export default function Navbar({
             <div className="bg-primary/10 p-2.5 rounded-md hover:bg-primary/20 transition-colors">
               <Home className="w-6 h-6 text-primary" />
             </div>
-            <span>Launch UI</span>
+            <ConaCad />
           </div>
 
           {/* Botones y Modo */}

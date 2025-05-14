@@ -1,5 +1,5 @@
 import { StatsGrid } from '@/components/widgets';
-import Navbar from '@/components/NavBars/Navbar';
+import Navbar from '@/components/navbars/Navbar';
 //import {ThemeColorToggle} from "@/components/theme-color-toggle";
 
 export default function Home() {
